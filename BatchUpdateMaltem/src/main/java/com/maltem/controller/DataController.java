@@ -27,9 +27,9 @@ public class DataController {
 		return taskService.updateMessage(transactionDetailMessage);
 	}
 
-	@GetMapping("/stDate/{stDate}/endDate/{endDate}")	
-	public ResponseDetailMessage getData(@PathVariable Long stDate, @PathVariable Long endDate) {
-		return taskService.getMessage(  stDate,   endDate);
+	@GetMapping("/startDate/{startDate}/endDate/{endDate}")
+	public ResponseDetailMessage getData(@PathVariable String startDate, @PathVariable String endDate) {
+		return taskService.getMessage(startDate, endDate);
 	}
 
 }

@@ -7,5 +7,5 @@ public interface TaskService {
 
 	Boolean updateMessage(RequestDetailMessage transactionDetailMessage);
 
-	ResponseDetailMessage getMessage(Long stTime, Long endTimne);
+	ResponseDetailMessage getMessage(String startTime, String endTimne);
 }

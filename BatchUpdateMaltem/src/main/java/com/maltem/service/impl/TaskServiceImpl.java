@@ -1,5 +1,7 @@
 package com.maltem.service.impl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,9 +20,9 @@ public class TaskServiceImpl implements TaskService {
 
 	@Autowired
 	TaskUpdationServiceImpl taskUpdationServiceImpl;
-	
+
 	@Autowired
-	TaskDao taskDao ;
+	TaskDao taskDao;
 
 	@Override
 	public Boolean updateMessage(RequestDetailMessage transactionDetailMessage) {
@@ -28,20 +30,24 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public ResponseDetailMessage getMessage(Long stTime, Long endTime) {
-		List<Message> messageList= taskDao.getMessageList(stTime, endTime);
-		ResponseDetailMessage transactionDetailMessage= new ResponseDetailMessage();
-		transactionDetailMessage.setTimeStamp(new Date().getTime());
-		if(!CollectionUtils.isEmpty(messageList)){
-			transactionDetailMessage.setStatus("success");
-			transactionDetailMessage.setUpdates(messageList);
-			
-		}
-		else{
-			transactionDetailMessage.setStatus("failure");
+	public ResponseDetailMessage getMessage(String startTime, String endTime) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
+		ResponseDetailMessage transactionDetailMessage = new ResponseDetailMessage();
+		List<Message> messageList;
+		try {
+			messageList = taskDao.getMessageList(sdf.parse(startTime).getTime(), sdf.parse(endTime).getTime());
+			transactionDetailMessage.setTimeStamp(new Date().getTime());
+			if (!CollectionUtils.isEmpty(messageList)) {
+				transactionDetailMessage.setStatus("success");
+				transactionDetailMessage.setUpdates(messageList);
+			} else {
+				transactionDetailMessage.setStatus("failure");
+			}
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 		return transactionDetailMessage;
-		
+
 	}
 
 }
