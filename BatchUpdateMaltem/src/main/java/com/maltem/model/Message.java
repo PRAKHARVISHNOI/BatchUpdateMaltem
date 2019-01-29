@@ -7,21 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
 @ToString
-@Getter 
-@Setter 
 @NoArgsConstructor
 
 @Entity
 @Table(name = "message")
 public class Message {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -31,31 +26,37 @@ public class Message {
 	private String git;
 	@Column(name = "TIMESTAMP")
 	private Long timestamp;
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getGit() {
 		return git;
 	}
+
 	public void setGit(String git) {
 		this.git = git;
 	}
+
 	public Long getTimestamp() {
 		return timestamp;
 	}
+
 	public void setTimestamp(Long timestamp) {
 		this.timestamp = timestamp;
 	}
-	
-	
-	
+
 }

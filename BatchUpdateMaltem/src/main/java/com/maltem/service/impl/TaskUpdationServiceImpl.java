@@ -14,15 +14,14 @@ public class TaskUpdationServiceImpl {
 
 	@Autowired
 	TaskDao taskDao;
-	
+
 	ExecutorService executorService = Executors.newFixedThreadPool(100);
 
 	public Boolean taskUpdation(TransactionDetailMessage transactionDetailMessage) {
 		transactionDetailMessage.getUpdates().forEach(message -> {
-			executorService.execute(new TaskUpdationService(taskDao,message));
+			executorService.execute(new TaskUpdationService(taskDao, message));
 		});
 		return true;
-
 	}
 
 }
