@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.maltem</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>BatchUpdateMaltem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>BatchUpdateMaltem</name>
 	<description>Demo project for Spring Boot</description>

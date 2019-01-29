@@ -1,5 +1,6 @@
 package com.maltem.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.maltem.model.TransactionDetailMessage;
@@ -9,15 +10,14 @@ import com.maltem.service.TaskService;
 public class TaskServiceImpl implements TaskService{
 
 	
-	/*@Autowired
+	@Autowired
 	TaskUpdationServiceImpl taskUpdationServiceImpl;
-	*/
+	
 	
 	@Override
 	public Boolean updateMessage(TransactionDetailMessage transactionDetailMessage) {
-		return null;
 		// TODO Auto-generated method stub
-		//return taskUpdationServiceImpl.taskUpdation(transactionDetailMessage);
+		return taskUpdationServiceImpl.taskUpdation(transactionDetailMessage);
 	}
 
 	@Override

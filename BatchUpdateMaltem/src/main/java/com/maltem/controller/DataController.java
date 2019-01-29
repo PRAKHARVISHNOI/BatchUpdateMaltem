@@ -23,16 +23,11 @@ public class DataController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public Boolean updateTask(@RequestBody TransactionDetailMessage transactionDetailMessage) {
-		
 		return taskService.updateMessage(transactionDetailMessage);
-		
 	}
-	
 	@GetMapping("/test")
 	public Object getData() {
-		
 		return new Object();
-		
 	}
 	
 
