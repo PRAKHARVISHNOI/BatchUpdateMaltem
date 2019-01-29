@@ -7,13 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BatchUpdateMaltemApplication {
 
 	public static void main(String[] args) {
-		try{
-		SpringApplication.run(BatchUpdateMaltemApplication.class, args);
-		}
-		catch(Exception e){
-			e.printStackTrace();//taskUpdationService
+		try {
+			SpringApplication.run(BatchUpdateMaltemApplication.class, args);
+		} catch (Exception e) {
+			e.printStackTrace();// taskUpdationService
 		}
 	}
 
 }
-
