@@ -23,12 +23,10 @@ public class TaskDaoImpl implements TaskDao {
 
 	@Override
 	public List<Message> getMessageList(Long stTime, Long endTime) {
-<<<<<<< HEAD
+
 		// TODO Auto-generated method stub
 		return messageRepository.findAllByTimestampLessThanEqualAndTimestampGreaterThanEqual(endTime,stTime);
-=======
-		return null;
->>>>>>> 63977f504df231d9936579c584235b716d34382a
+
 	}
 
 }
