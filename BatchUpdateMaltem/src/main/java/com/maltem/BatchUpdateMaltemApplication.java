@@ -10,7 +10,7 @@ public class BatchUpdateMaltemApplication {
 		try {
 			SpringApplication.run(BatchUpdateMaltemApplication.class, args);
 		} catch (Exception e) {
-			e.printStackTrace();// taskUpdationService
+			e.printStackTrace();
 		}
 	}
 

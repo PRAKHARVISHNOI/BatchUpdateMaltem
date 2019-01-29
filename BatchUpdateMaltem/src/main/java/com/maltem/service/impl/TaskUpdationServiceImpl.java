@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.maltem.dao.TaskDao;
-import com.maltem.model.TransactionDetailMessage;
+import com.maltem.model.RequestDetailMessage;
 
 @Service
 public class TaskUpdationServiceImpl {
@@ -17,7 +17,7 @@ public class TaskUpdationServiceImpl {
 
 	ExecutorService executorService = Executors.newFixedThreadPool(100);
 
-	public Boolean taskUpdation(TransactionDetailMessage transactionDetailMessage) {
+	public Boolean taskUpdation(RequestDetailMessage transactionDetailMessage) {
 		transactionDetailMessage.getUpdates().forEach(message -> {
 			executorService.execute(new TaskUpdationService(taskDao, message));
 		});

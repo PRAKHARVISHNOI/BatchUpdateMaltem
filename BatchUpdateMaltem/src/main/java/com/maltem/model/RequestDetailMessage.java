@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @ToString
 @NoArgsConstructor
-public class TransactionDetailMessage {
+public class RequestDetailMessage {
 
 	private String source;
 	private Long timeStamp;
@@ -55,7 +55,7 @@ public class TransactionDetailMessage {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TransactionDetailMessage other = (TransactionDetailMessage) obj;
+		RequestDetailMessage other = (RequestDetailMessage) obj;
 		if (source == null) {
 			if (other.source != null)
 				return false;
