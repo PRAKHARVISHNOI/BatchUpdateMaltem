@@ -11,7 +11,7 @@ public class BatchUpdateMaltemApplication {
 		SpringApplication.run(BatchUpdateMaltemApplication.class, args);
 		}
 		catch(Exception e){
-			e.printStackTrace();
+			e.printStackTrace();//taskUpdationService
 		}
 	}
 
