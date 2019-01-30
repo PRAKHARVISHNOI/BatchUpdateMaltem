@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,10 +15,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import com.maltem.controller.RequestController;
 import com.maltem.model.RequestDetailMessage;
 
 public class UpdationTask implements Callable<RequestDetailMessage> {
 
+	private static final Logger Logger = LoggerFactory.getLogger(UpdationTask.class);
+	
 	@Value("${api.url}")
 	private String url;
 
@@ -32,6 +37,8 @@ public class UpdationTask implements Callable<RequestDetailMessage> {
 
 	@Override
 	public RequestDetailMessage call() throws Exception {
+		
+		Logger.info("Enter UpdationTask method RequestDetailMessage: Param ");
 		HttpHeaders httpHeaders = new HttpHeaders();
 		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
 		List<MediaType> mediaType = new ArrayList<MediaType>();
