@@ -23,7 +23,7 @@ public class DataRepo {
 		RequestDetailMessage requestDetailMessage = new RequestDetailMessage();
 		List<Message> messageList = new ArrayList<Message>();
 		requestDetailMessage.setSource("gitters");
-		requestDetailMessage.setTimeStamp(new Date().getTime());
+		requestDetailMessage.setTimestamp(new Date().getTime());
 		messageList.add(message1);
 		messageList.add(message2);
 		messageList.add(message3);

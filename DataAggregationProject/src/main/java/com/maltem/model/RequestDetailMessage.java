@@ -2,15 +2,10 @@ package com.maltem.model;
 
 import java.util.List;
 
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor
 public class RequestDetailMessage {
 
 	private String source;
-	private Long timeStamp;
+	private Long timestamp;
 	private List<Message> updates;
 
 	public String getSource() {
@@ -21,12 +16,12 @@ public class RequestDetailMessage {
 		this.source = source;
 	}
 
-	public Long getTimeStamp() {
-		return timeStamp;
+	public Long getTimestamp() {
+		return timestamp;
 	}
 
-	public void setTimeStamp(Long timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setTimestamp(Long timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public List<Message> getUpdates() {
@@ -42,7 +37,7 @@ public class RequestDetailMessage {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((source == null) ? 0 : source.hashCode());
-		result = prime * result + ((timeStamp == null) ? 0 : timeStamp.hashCode());
+		result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
 		result = prime * result + ((updates == null) ? 0 : updates.hashCode());
 		return result;
 	}
@@ -61,10 +56,10 @@ public class RequestDetailMessage {
 				return false;
 		} else if (!source.equals(other.source))
 			return false;
-		if (timeStamp == null) {
-			if (other.timeStamp != null)
+		if (timestamp == null) {
+			if (other.timestamp != null)
 				return false;
-		} else if (!timeStamp.equals(other.timeStamp))
+		} else if (!timestamp.equals(other.timestamp))
 			return false;
 		if (updates == null) {
 			if (other.updates != null)
@@ -72,6 +67,11 @@ public class RequestDetailMessage {
 		} else if (!updates.equals(other.updates))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RequestDetailMessage [source=" + source + ", timestamp=" + timestamp + ", updates=" + updates + "]";
 	}
 
 }

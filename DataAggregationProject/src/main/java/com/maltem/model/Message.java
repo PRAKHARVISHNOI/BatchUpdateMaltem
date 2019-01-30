@@ -1,30 +1,15 @@
 package com.maltem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor
-@Entity
-@Table(name = "message")
 public class Message {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Column(name = "NAME")
 	private String name;
-	@Column(name = "GIT")
 	private String git;
-	@Column(name = "TIMESTAMP")
 	private Long timestamp;
+
+	public Message() {
+		super();
+	}
 
 	public Message(String name, String git, Long timestamp) {
 		super();
@@ -63,6 +48,11 @@ public class Message {
 
 	public void setTimestamp(Long timestamp) {
 		this.timestamp = timestamp;
+	}
+
+	@Override
+	public String toString() {
+		return "Message [name=" + name + ", git=" + git + ", timestamp=" + timestamp + "]";
 	}
 
 }

@@ -7,12 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor
-
 @Entity
 @Table(name = "message")
 public class Message {
@@ -20,10 +14,13 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
 	@Column(name = "NAME")
 	private String name;
+
 	@Column(name = "GIT")
 	private String git;
+
 	@Column(name = "TIMESTAMP")
 	private Long timestamp;
 

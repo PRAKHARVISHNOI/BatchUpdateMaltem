@@ -18,12 +18,11 @@ public class TaskUpdationServiceImpl {
 	ExecutorService executorService = Executors.newFixedThreadPool(100);
 
 	public Boolean taskUpdation(RequestDetailMessage transactionDetailMessage) {
-		try{
-		transactionDetailMessage.getUpdates().forEach(message -> {
-			executorService.execute(new TaskUpdationService(taskDao, message));
-		});
-		}
-		catch(Exception  e){
+		try {
+			transactionDetailMessage.getUpdates().forEach(message -> {
+				executorService.execute(new TaskUpdationService(taskDao, message));
+			});
+		} catch (Exception e) {
 			return false;
 		}
 		return true;

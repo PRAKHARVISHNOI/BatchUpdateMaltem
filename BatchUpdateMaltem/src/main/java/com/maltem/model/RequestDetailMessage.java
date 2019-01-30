@@ -2,11 +2,6 @@ package com.maltem.model;
 
 import java.util.List;
 
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@ToString
-@NoArgsConstructor
 public class RequestDetailMessage {
 
 	private String source;
