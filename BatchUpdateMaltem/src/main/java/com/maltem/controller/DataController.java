@@ -23,8 +23,11 @@ public class DataController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
-	public Boolean updateTask(@RequestBody RequestDetailMessage transactionDetailMessage) {
-		return taskService.updateMessage(transactionDetailMessage);
+	public RequestDetailMessage updateTask(@RequestBody RequestDetailMessage transactionDetailMessage) {
+		if( taskService.updateMessage(transactionDetailMessage)){
+			return transactionDetailMessage;
+		}
+		else return new RequestDetailMessage();
 	}
 
 	@GetMapping("/startDate/{startDate}/endDate/{endDate}")
