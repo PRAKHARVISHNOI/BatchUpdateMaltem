@@ -12,7 +12,6 @@ import lombok.ToString;
 
 @ToString
 @NoArgsConstructor
-
 @Entity
 @Table(name = "message")
 public class Message {
@@ -26,11 +25,8 @@ public class Message {
 	private String git;
 	@Column(name = "TIMESTAMP")
 	private Long timestamp;
-	
-	
-	
 
-	public Message( String name, String git, Long timestamp) {
+	public Message(String name, String git, Long timestamp) {
 		super();
 		this.name = name;
 		this.git = git;

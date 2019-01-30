@@ -23,20 +23,16 @@ public class RequestController {
 	@Autowired
 	public ApplicationEventPublisher eventPublisher;
 
-	@GetMapping("docontinuousinput")
+	@GetMapping("doContinuousInput")
 	public void getLiveAttributeDetails() throws InterruptedException, ExecutionException {
 		ExecutorService nonBlockingService = Executors.newSingleThreadExecutor();
-		
-		while(true){
-		Future<RequestDetailMessage> future = nonBlockingService
-				.submit(new UpdationTask(restTemplate, DataRepo.getRandomObject()));
+
+		while (true) {
+			Future<RequestDetailMessage> future = nonBlockingService
+					.submit(new UpdationTask(restTemplate, DataRepo.getRandomObject()));
 			System.out.println(future.get());
-		Thread.sleep(900000);
+			Thread.sleep(900000);
 		}
 	}
 
-	
-	
-	
-	
 }
