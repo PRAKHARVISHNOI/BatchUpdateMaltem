@@ -1,5 +1,7 @@
 package com.maltem.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,21 +20,29 @@ import com.maltem.service.impl.TaskServiceImpl;
 @RequestMapping(value = "/service")
 public class DataController {
 
+
+	private static final Logger Logger = LoggerFactory.getLogger(DataController.class);
+
+	
 	@Autowired
 	TaskServiceImpl taskService;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	public RequestDetailMessage updateTask(@RequestBody RequestDetailMessage transactionDetailMessage) {
+		Logger.info("Enter DataController method RequestDetailMessage: Param # " + transactionDetailMessage);
 		if (taskService.updateMessage(transactionDetailMessage)) {
 			return transactionDetailMessage;
 		} else {
 			return new RequestDetailMessage();
 		}
+		
 	}
 
 	@GetMapping("/startDate/{startDate}/endDate/{endDate}")
 	public ResponseDetailMessage getData(@PathVariable String startDate, @PathVariable String endDate) {
+		Logger.info("Enter DataController method getData: Param # #" + startDate +"-"+endDate);
+		
 		return taskService.getMessage(startDate, endDate);
 	}
 
