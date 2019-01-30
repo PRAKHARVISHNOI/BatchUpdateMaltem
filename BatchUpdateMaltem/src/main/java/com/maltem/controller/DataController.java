@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.maltem.exception.ApplicationException;
 import com.maltem.model.RequestDetailMessage;
 import com.maltem.model.ResponseDetailMessage;
 import com.maltem.service.impl.TaskServiceImpl;
@@ -40,7 +41,7 @@ public class DataController {
 	}
 
 	@GetMapping("/startDate/{startDate}/endDate/{endDate}")
-	public ResponseDetailMessage getData(@PathVariable String startDate, @PathVariable String endDate) {
+	public ResponseDetailMessage getData(@PathVariable String startDate, @PathVariable String endDate) throws ApplicationException {
 		Logger.info("Enter DataController method getData: Param # #" + startDate +"-"+endDate);
 		
 		return taskService.getMessage(startDate, endDate);

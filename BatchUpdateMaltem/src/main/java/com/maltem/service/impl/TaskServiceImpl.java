@@ -13,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 
 import com.maltem.controller.DataController;
 import com.maltem.dao.TaskDao;
+import com.maltem.exception.ApplicationException;
 import com.maltem.model.Message;
 import com.maltem.model.RequestDetailMessage;
 import com.maltem.model.ResponseDetailMessage;
@@ -34,7 +35,7 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public ResponseDetailMessage getMessage(String startTime, String endTime) {
+	public ResponseDetailMessage getMessage(String startTime, String endTime) throws ApplicationException {
 		Logger.info("Enter TaskServiceImpl method getMessage: Param # " + startTime+"-"+endTime);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddhhmmss");
 		ResponseDetailMessage transactionDetailMessage = new ResponseDetailMessage();
@@ -49,7 +50,7 @@ public class TaskServiceImpl implements TaskService {
 				transactionDetailMessage.setStatus("failure");
 			}
 		} catch (ParseException e) {
-			e.printStackTrace();
+			throw new ApplicationException(e.getMessage());
 		}
 		return transactionDetailMessage;
 
