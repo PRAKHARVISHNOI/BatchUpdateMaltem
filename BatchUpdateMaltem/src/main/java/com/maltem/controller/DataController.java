@@ -18,22 +18,19 @@ import com.maltem.model.ResponseDetailMessage;
 import com.maltem.service.impl.TaskServiceImpl;
 
 @RestController
-@RequestMapping(value = "/service")
 public class DataController {
 
-
 	private static final Logger Logger = LoggerFactory.getLogger(DataController.class);
-
 	
 	@Autowired
 	TaskServiceImpl taskService;
 
-	@PostMapping
+	@PostMapping("/updateTask")
 	@ResponseStatus(HttpStatus.OK)
-	public RequestDetailMessage updateTask(@RequestBody RequestDetailMessage transactionDetailMessage) {
-		Logger.info("Enter DataController method RequestDetailMessage: Param # " + transactionDetailMessage);
-		if (taskService.updateMessage(transactionDetailMessage)) {
-			return transactionDetailMessage;
+	public RequestDetailMessage updateTask(@RequestBody RequestDetailMessage requestDetailMessage) {
+		Logger.info("Enter DataController method RequestDetailMessage: Param # " + requestDetailMessage);
+		if (taskService.updateMessage(requestDetailMessage)) {
+			return requestDetailMessage;
 		} else {
 			return new RequestDetailMessage();
 		}

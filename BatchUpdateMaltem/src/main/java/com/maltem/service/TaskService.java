@@ -6,7 +6,7 @@ import com.maltem.model.ResponseDetailMessage;
 
 public interface TaskService {
 
-	Boolean updateMessage(RequestDetailMessage transactionDetailMessage);
+	Boolean updateMessage(RequestDetailMessage requestDetailMessage);
 
 	ResponseDetailMessage getMessage(String startTime, String endTimne) throws ApplicationException;
 }
