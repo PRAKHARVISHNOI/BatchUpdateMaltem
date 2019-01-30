@@ -24,6 +24,17 @@ public class Message {
 	@Column(name = "TIMESTAMP")
 	private Long timestamp;
 
+	public Message() {
+		super();
+	}
+
+	public Message(String name, String git, Long timestamp) {
+		super();
+		this.name = name;
+		this.git = git;
+		this.timestamp = timestamp;
+	}
+
 	public long getId() {
 		return id;
 	}

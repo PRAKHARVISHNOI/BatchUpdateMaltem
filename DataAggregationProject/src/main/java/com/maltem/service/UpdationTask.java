@@ -47,7 +47,7 @@ public class UpdationTask implements Callable<RequestDetailMessage> {
 		HttpEntity<?> requestEntity = new HttpEntity<>(requestDetailMessage, httpHeaders);
 
 		ResponseEntity<RequestDetailMessage> responseEntity = restTemplate.exchange(
-				"http://localhost:8085/maltemapp/service", HttpMethod.POST, requestEntity, RequestDetailMessage.class);
+				"http://localhost:8085/maltemapp/updateTask", HttpMethod.POST, requestEntity, RequestDetailMessage.class);
 
 		if (responseEntity.getStatusCode() == HttpStatus.OK) {
 			return requestDetailMessage;
